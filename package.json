@@ -1,0 +1,20 @@
+{
+  "name": "app",
+  "private": true,
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.4",
+    "@tabler/core": "^1.0.0-beta20",
+    "bootstrap": "^5.3.3",
+    "esbuild": "^0.20.2",
+    "esbuild-rails": "^1.0.7",
+    "jquery": "^3.7.1",
+    "sass": "^1.72.0",
+    "sortablejs": "^1.15.2"
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "packageManager": "yarn@4.0.2"
+}

@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title DemoApp
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
+
+  body.px-6.layout-fluid data-controller="application"
+    .page
+      .page-wrapper
+        .page-header.d-print-none
+          .container-xl
+            .row.g-2.align-items-center
+              .col
+                .page-pretitle
+                  |  Overview
+                h2.page-title.text-uppercase
+                  = controller_name
+              .col-auto.ms-auto.d-print-none
+                .btn-list
+                  span.d-none.d-sm-inline
+                    - if controller.respond_to?(:new)
+                      = link_to url_for(action: :new), data: { turbo_frame: "new_frame" }, class: "btn btn-primary" do
+                        svg.icon[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"]
+                          path[stroke="none" d="M0 0h24v24H0z" fill="none"]
+                          path[d="M12 5l0 14"]
+                          path[d="M5 12l14 0"]
+                        |  Add #{controller_name.singularize.humanize}
+        .page-body
+          .container-xl.overflow-x-auto
+            = yield

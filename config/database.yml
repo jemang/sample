@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+external: &external
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: <%= ENV.fetch('POSTGRES_PORT') { 5432 } %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+
+development:
+  <<: [*default, *external]
+  database: demo_statistic_development
+
+test:
+  <<: [*default, *external]
+  database: demo_statistic_test
+
+production:
+  <<: [*default, *external]
+  database: demo_statistic_production

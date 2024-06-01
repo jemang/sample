@@ -1,0 +1,6 @@
+ruby 3.3.0
+nodejs 20.10.0
+
+#corepack enable
+#corepack use yarn@4.0.2
+#yarn set version 4.0.2
