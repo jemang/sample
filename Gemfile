@@ -78,4 +78,8 @@ gem "responders"
 ## extras
 gem "flexirest"
 gem "jsonb_accessor"
+
+# Background Processing
+gem "sidekiq"
+gem "sidekiq-cron"
 gem "redis-objects", ">= 2.0.0.beta"

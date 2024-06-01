@@ -1,0 +1,18 @@
+:concurrency: 5
+:max_retries: 3
+:logfile: log/sidekiq.log
+:pidfile: tmp/pids/sidekiq.pid
+:queues:
+  - default
+  - mailers
+  - channels
+  - critical
+  - low
+  - daily_record
+  - hourly_record
+
+staging:
+  :concurrency: 1
+
+production:
+  :concurrency: 2
