@@ -1,9 +1,19 @@
 class User < ApplicationRecord
+  include Redis::Objects
+
+  # value :male
+  # value :female
+
+  scope :male_user, -> { where(gender: "male") }
+  scope :female_user, -> { where(gender: "female") }
+
   validates :uuid, presence: true, uniqueness: true
 
   jsonb_accessor :extras,
-    email: :string,
-    thumbnail: :string
+                 email: :string,
+                 thumbnail: :string
+
+  after_destroy :regenerate_daily_report
 
   def fullname
     "#{name["title"]} #{name["first"]} #{name["last"]}"
@@ -30,5 +40,11 @@ class User < ApplicationRecord
       location: data.location
     )
     record.save if record.changed?
+  end
+
+  private
+
+  def regenerate_daily_report
+    DailyCheckerJob.perform_later
   end
 end
