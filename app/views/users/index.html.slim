@@ -1,0 +1,46 @@
+= turbo_frame_tag "users" do
+  .card
+    .card-header
+      .col-12
+        = simple_form_for :search, url: users_path, html: { method: :get } do |f|
+          .input-group.mb-2.w-full
+            = f.input :filter, label: false,
+              placeholder: "Filter User..",
+              required: false,
+              class: "form-control string required",
+              input_html: { value: params.dig(:search, :filter) },
+              wrapper_html: { class: "col-md-11" }
+            button.btn.mb-3.btn-primary.col type="submit"
+              svg.icon[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"]
+                path[stroke="none" d="M0 0h24v24H0z" fill="none"]
+                path[d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"]
+                path[d="M21 21l-6 -6"]
+
+    .card-table.table-responsive
+      table.table
+        thead
+          tr
+            th
+            th Fullname
+            th Email
+            th Gender
+            th Age
+            th Created At
+            th Action
+        tbody
+          - @users.each do |user|
+            tr
+              td
+                span.avatar[style="background-image: url(#{user.thumbnail})"]
+              td = user.fullname
+              td = user.email
+              td
+                .badge class="#{user.male? ? 'bg-azure-lt' : 'bg-pink-lt'}"
+                  = user.gender.capitalize
+              td = user.age
+              td = local_time_ago(user.created_at)
+              td width="50px"
+          tr
+            td colspan="7"
+              .d-flex.justify-content-end
+                == pagy_bootstrap_nav(@pagy) if @pagy

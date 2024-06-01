@@ -1,0 +1,22 @@
+.row.row-cards.mb-4
+  .col-md-4
+    .card
+      .card-status-start.bg-dark
+      .card-body
+        .subheader
+          | Total User
+        .h1 = User.all.count
+  .col-md-4
+    .card
+      .card-status-start.bg-info
+      .card-body
+        .subheader
+          | Total Male User
+        .h1 = User.male_user.count
+  .col-md-4
+    .card
+      .card-status-start.bg-pink
+      .card-body
+        .subheader
+          | Total Female User
+        .h1 = User.female_user.count

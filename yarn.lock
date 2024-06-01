@@ -422,6 +422,7 @@ __metadata:
     esbuild: "npm:^0.20.2"
     esbuild-rails: "npm:^1.0.7"
     jquery: "npm:^3.7.1"
+    local-time: "npm:^3.0.2"
     sass: "npm:^1.72.0"
     sortablejs: "npm:^1.15.2"
   languageName: unknown
@@ -971,6 +972,13 @@ __metadata:
   version: 1.1.0
   resolution: "jsbn@npm:1.1.0"
   checksum: 4f907fb78d7b712e11dea8c165fe0921f81a657d3443dde75359ed52eb2b5d33ce6773d97985a089f09a65edd80b11cb75c767b57ba47391fee4c969f7215c96
+  languageName: node
+  linkType: hard
+
+"local-time@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "local-time@npm:3.0.2"
+  checksum: 906d224bc09714293037df70286cee91f86a80023366922741808e43679a798400659f06451e9432ffbd4030b2fe957cfdeaa6ce6de5e2fecbf276b291986b08
   languageName: node
   linkType: hard
 

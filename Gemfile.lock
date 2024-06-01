@@ -139,6 +139,7 @@ GEM
       activerecord (>= 6.1)
       activesupport (>= 6.1)
       pg (>= 0.18.1)
+    local_time (3.0.2)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -181,7 +182,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.3-x86_64-linux)
       racc (~> 1.4)
+    pagy (8.4.0)
     pg (1.5.6)
+    polyglot (0.3.5)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
@@ -243,6 +246,8 @@ GEM
       railties (>= 5.2)
     rexml (3.2.6)
     rubyzip (2.3.2)
+    search_cop (1.4.0)
+      treetop
     selenium-webdriver (4.18.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -281,6 +286,8 @@ GEM
     thor (1.3.1)
     tilt (2.3.0)
     timeout (0.4.1)
+    treetop (1.6.12)
+      polyglot (~> 0.3)
     turbo-rails (2.0.5)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -319,12 +326,15 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   jsonb_accessor
+  local_time
+  pagy (~> 8.4)
   pg
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
   redis (>= 4.0.1)
   redis-objects (>= 2.0.0.beta)
   responders
+  search_cop
   selenium-webdriver
   sidekiq
   sidekiq-cron

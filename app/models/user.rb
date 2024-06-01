@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Redis::Objects
+  include SearchCop
 
   # value :male
   # value :female
@@ -14,6 +15,15 @@ class User < ApplicationRecord
                  thumbnail: :string
 
   after_destroy :regenerate_daily_report
+
+  search_scope :search do
+    attributes :gender, :age
+    attributes first_name: "name->first"
+    attributes last_name: "name->last"
+    attributes email: "extras->email"
+
+    options :gender, type: :fulltext
+  end
 
   def fullname
     "#{name["title"]} #{name["first"]} #{name["last"]}"
@@ -40,6 +50,10 @@ class User < ApplicationRecord
       location: data.location
     )
     record.save if record.changed?
+  end
+
+  def male?
+    gender == "male"
   end
 
   private

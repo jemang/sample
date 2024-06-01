@@ -75,6 +75,11 @@ gem "slim-rails"
 gem "simple_form"
 gem "responders"
 
+## ui
+gem "pagy", "~> 8.4"
+gem "local_time"
+gem "search_cop"
+
 ## extras
 gem "flexirest"
 gem "jsonb_accessor"
