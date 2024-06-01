@@ -1,0 +1,11 @@
+# config/schedule.yml
+
+daily_checker:
+  cron: "58 23 * * * Asia/Kuala_Lumpur"
+  class: "DailyCheckerJob"
+  queue: "daily_record"
+
+hourly_checker:
+  cron: "* */2 * * * Asia/Kuala_Lumpur"
+  class: "RandomUserJob"
+  queue: "random_record"

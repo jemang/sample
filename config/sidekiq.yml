@@ -9,7 +9,7 @@
   - critical
   - low
   - daily_record
-  - hourly_record
+  - random_record
 
 staging:
   :concurrency: 1

@@ -9,8 +9,8 @@ class DailyRecord < ApplicationRecord
 
   def self.generate_daily_report
     report = find_or_create_by(date: Time.zone.today.to_date)
-    report.male_count = rc_male.value
-    report.female_count = rc_female.value
+    report.male_count = report.rc_male.value
+    report.female_count = report.rc_female.value
     report.save
   end
 
