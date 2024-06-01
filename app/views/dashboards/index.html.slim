@@ -1,1 +1,30 @@
-h4 dashboard here
+.row.row-cards
+  .col-12
+    .card
+      .card-header
+        h3.card-title
+          | User Lists
+      .list-group.list-group-flush.list-group-hoverable
+        - @users.each do |user|
+          .list-group-item
+            .row.align-items-center
+              .col-auto
+                span.badge.bg-red
+              .col-auto
+                a[href="#"]
+                  span.avatar[style="background-image: url(#{user.thumbnail})"]
+              .col.text-truncate
+                .text-reset.d-block
+                  = user.fullname
+                  .h6.text-muted
+                    | (#{user.uuid})
+                .d-block.text-truncate.mt-n1
+                  .badge.bg-azure-lt
+                    = user.gender.capitalize
+                .d-block.text-secondary.text-truncate.mt-n1
+                  span = user.email
+              .col-auto
+                a.list-group-item-actions[href="#"]
+                  svg.icon.text-secondary[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"]
+                    path[stroke="none" d="M0 0h24v24H0z" fill="none"]
+                    path[d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"]

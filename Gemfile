@@ -74,3 +74,8 @@ end
 gem "slim-rails"
 gem "simple_form"
 gem "responders"
+
+## extras
+gem "flexirest"
+gem "jsonb_accessor"
+gem "redis-objects", ">= 2.0.0.beta"
