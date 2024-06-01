@@ -40,6 +40,9 @@
               td = user.age
               td = local_time_ago(user.created_at)
               td width="50px"
+                = button_to "Delete", user_path(user), method: :delete,
+                  data: { turbo_confirm: "Are you Sure" },
+                  class: "btn btn-danger btn-sm ms-1"
           tr
             td colspan="7"
               .d-flex.justify-content-end

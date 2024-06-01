@@ -1,9 +1,5 @@
 class User < ApplicationRecord
-  include Redis::Objects
   include SearchCop
-
-  # value :male
-  # value :female
 
   scope :male_user, -> { where(gender: "male") }
   scope :female_user, -> { where(gender: "female") }
@@ -14,6 +10,7 @@ class User < ApplicationRecord
                  email: :string,
                  thumbnail: :string
 
+  after_commit :recounter_report, on: [:create, :destroy]
   after_destroy :regenerate_daily_report
 
   search_scope :search do
@@ -60,5 +57,10 @@ class User < ApplicationRecord
 
   def regenerate_daily_report
     DailyCheckerJob.perform_later
+  end
+
+  def recounter_report
+    Current.report ||= DailyRecord.find_or_create_by(date: Time.zone.today.to_date)
+    Current.report.reset_counter
   end
 end

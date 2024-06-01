@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %w[show destroy]
 
   def index
     @users = if params[:search].present?
@@ -11,6 +12,17 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @user.destroy
+    respond_with(@user)
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

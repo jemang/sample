@@ -5,18 +5,18 @@
       .card-body
         .subheader
           | Total User
-        .h1 = User.all.count
+        .h1 = current_report.rc_users.value
   .col-md-4
     .card
       .card-status-start.bg-info
       .card-body
         .subheader
           | Total Male User
-        .h1 = User.male_user.count
+        .h1 = current_report.rc_male.value
   .col-md-4
     .card
       .card-status-start.bg-pink
       .card-body
         .subheader
           | Total Female User
-        .h1 = User.female_user.count
+        .h1 = current_report.rc_female.value
