@@ -40,9 +40,22 @@
               td = user.age
               td.d-none.d-md-table-cell = local_time_ago(user.created_at)
               td width="50px"
-                = button_to "Delete", user_path(user), method: :delete,
-                  data: { turbo_confirm: "Are you Sure" },
-                  class: "btn btn-danger btn-sm ms-1"
+                .btn-group
+                  = link_to user_path(user), class: "btn btn-primary btn-sm", data: { "turbo-frame": :_top }
+                    svg.icon.icon-tabler.icons-tabler-outline.icon-tabler-file-info[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+                      path[stroke="none" d="M0 0h24v24H0z" fill="none"]
+                      path[d="M14 3v4a1 1 0 0 0 1 1h4"]
+                      path[d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"]
+                      path[d="M11 14h1v4h1"]
+                      path[d="M12 11h.01"]
+                  = button_to user_path(user), method: :delete, data: { turbo_confirm: "Are you Sure" }, class: "btn btn-danger btn-sm p-1"
+                    svg.icon.icon-tabler.icons-tabler-outline.icon-tabler-trash[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"]
+                      path[stroke="none" d="M0 0h24v24H0z" fill="none"]
+                      path[d="M4 7l16 0"]
+                      path[d="M10 11l0 6"]
+                      path[d="M14 11l0 6"]
+                      path[d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"]
+                      path[d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"]
           tr
             td colspan="7"
               .d-flex.justify-content-end

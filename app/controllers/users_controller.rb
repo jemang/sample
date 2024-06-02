@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    respond_with(@user)
   end
 
   def destroy
@@ -24,5 +25,4 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 end
