@@ -79,6 +79,7 @@ gem "responders"
 gem "pagy", "~> 8.4"
 gem "local_time"
 gem "search_cop"
+gem "chartkick"
 
 ## extras
 gem "flexirest"

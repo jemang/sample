@@ -1,15 +1,15 @@
 = turbo_frame_tag "users" do
   .card
-    .card-header
+    .card-header.py-2
       .col-12
         = simple_form_for :search, url: users_path, html: { method: :get } do |f|
-          .input-group.mb-2.w-full
+          .input-group.w-full
             = f.input :filter, label: false,
               placeholder: "Filter User..",
               required: false,
               class: "form-control string required",
               input_html: { value: params.dig(:search, :filter) },
-              wrapper_html: { class: "col-md-11" }
+              wrapper_html: { class: "col-8 col-md-11 mb-0" }
             button.btn.mb-3.btn-primary.col type="submit"
               svg.icon[xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"]
                 path[stroke="none" d="M0 0h24v24H0z" fill="none"]
@@ -22,10 +22,10 @@
           tr
             th
             th Fullname
-            th Email
+            th.d-none.d-md-table-cell Email
             th Gender
             th Age
-            th Created At
+            th.d-none.d-md-table-cell Created At
             th Action
         tbody
           - @users.each do |user|
@@ -33,12 +33,12 @@
               td
                 span.avatar[style="background-image: url(#{user.thumbnail})"]
               td = user.fullname
-              td = user.email
+              td.d-none.d-md-table-cell = user.email
               td
                 .badge class="#{user.male? ? 'bg-azure-lt' : 'bg-pink-lt'}"
                   = user.gender.capitalize
               td = user.age
-              td = local_time_ago(user.created_at)
+              td.d-none.d-md-table-cell = local_time_ago(user.created_at)
               td width="50px"
                 = button_to "Delete", user_path(user), method: :delete,
                   data: { turbo_confirm: "Are you Sure" },

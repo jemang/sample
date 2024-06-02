@@ -62,5 +62,10 @@ class User < ApplicationRecord
   def recounter_report
     Current.report ||= DailyRecord.find_or_create_by(date: Time.zone.today.to_date)
     Current.report.reset_counter
+    broadcasts_counter
+  end
+
+  def broadcasts_counter
+    broadcast_replace_to("dashboards", target: "stats_counter", template: "dashboards/stats")
   end
 end

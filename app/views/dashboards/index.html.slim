@@ -1,5 +1,7 @@
+= turbo_stream_from "dashboards"
 // statistic //
-= render "stats"
+= turbo_frame_tag "stats_counter" do
+  = render "dashboards/stats"
 // report //
 = render "report"
 
