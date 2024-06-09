@@ -83,6 +83,8 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
+    by_star (4.0.1)
+      activesupport (>= 3.2.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -320,6 +322,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  by_star
   capybara
   chartkick
   cssbundling-rails

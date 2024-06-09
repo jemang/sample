@@ -84,6 +84,7 @@ gem "chartkick"
 ## extras
 gem "flexirest"
 gem "jsonb_accessor"
+gem "by_star"
 
 # Background Processing
 gem "sidekiq"

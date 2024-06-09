@@ -1,0 +1,4 @@
+= turbo_frame_tag "report_pie_chart" do
+  h3.card-title
+    | Daily User Report on #{@daily_record.date}
+  = pie_chart @daily_record.today_report_counter, thousands: ",", height: "260px", donut: true, legend: "bottom"
